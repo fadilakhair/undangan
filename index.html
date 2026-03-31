@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngunduh Mantu Fadila & Rosita</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #fdf6f0;
+    text-align: center;
+}
+.section {
+    padding: 40px 20px;
+}
+h1, h2 {
+    color: #8b5e3c;
+}
+.button {
+    background: #8b5e3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.card {
+    background: white;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 420px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIK -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<!-- COVER -->
+<div class="section" id="cover">
+    <h2>Undangan</h2>
+    <h1>Ngunduh Mantu</h1>
+    <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+    <button class="button" onclick="openInvite()">Buka Undangan</button>
+</div>
+
+<!-- CONTENT -->
+<div id="content" style="display:none;">
+
+<div class="section">
+    <h1>Fadila Khair & Rosita</h1>
+    <p>Dengan penuh rasa syukur, kami mengundang Anda untuk menghadiri acara Ngunduh Mantu</p>
+</div>
+
+<div class="section">
+    <div class="card">
+        <h2>Tuan Rumah</h2>
+        <p>Bapak Nasiruddin & Ibu Rubiah, S.Pd (Buk Win)</p>
+        <p>Dusun III Desa Mangga Dua, Kec. Tanjung Beringin, Kab. Serdang Bedagai</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="card">
+        <h2>Mempelai</h2>
+        <p><b>Fadila Khair, S.Kom</b><br>
+        Putra dari Bapak Nasiruddin & Ibu Rubiah, S.Pd</p>
+
+        <br>
+
+        <p><b>Rosita, S.Pd., Gr.</b><br>
+        Putri dari Bapak Naseb & Ibu Misriani</p>
+    </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="section">
+    <h2>Menuju Hari Bahagia</h2>
+    <p id="countdown"></p>
+</div>
+
+<!-- ACARA -->
+<div class="section">
+    <div class="card">
+        <h2>Ngunduh Mantu</h2>
+        <p>Sabtu, 11 April 2026</p>
+        <p>Pukul 10.00 WIB - Selesai</p>
+        <p>Dusun III Desa Mangga Dua<br>Kec. Tanjung Beringin<br>Kab. Serdang Bedagai</p>
+    </div>
+</div>
+
+<!-- MAP -->
+<div class="section">
+    <h2>Lokasi</h2>
+    <a href="https://www.google.com/maps?q=3.515364,99.163123" target="_blank">
+        <button class="button">Buka Google Maps</button>
+    </a>
+</div>
+
+<!-- RSVP -->
+<div class="section">
+    <h2>Konfirmasi Kehadiran</h2>
+    <div class="card">
+        <input type="text" id="nama" placeholder="Nama Anda"><br><br>
+        <select id="status">
+            <option>Hadir</option>
+            <option>Tidak Hadir</option>
+        </select><br><br>
+        <button class="button" onclick="kirimWA()">Kirim via WhatsApp</button>
+    </div>
+</div>
+
+<!-- GIFT -->
+<div class="section">
+    <h2>Wedding Gift</h2>
+    <div class="card">
+        <p><b>Bank Mandiri</b></p>
+        <p>1070021732005</p>
+        <p>a.n Fadila Khair</p>
+    </div>
+
+    <div class="card">
+        <p><b>DANA</b></p>
+        <p>081360204857</p>
+        <p>a.n Fadila Khair</p>
+    </div>
+</div>
+
+<div class="section">
+    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami atas kehadiran serta doa restu Anda</p>
+</div>
+
+</div>
+
+<script>
+function openInvite(){
+    document.getElementById("cover").style.display="none";
+    document.getElementById("content").style.display="block";
+}
+
+/* COUNTDOWN */
+var countDate = new Date("April 11, 2026 10:00:00").getTime();
+
+var x = setInterval(function(){
+    var now = new Date().getTime();
+    var distance = countDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").innerHTML = days + " Hari Lagi";
+}, 1000);
+
+/* RSVP WA */
+function kirimWA(){
+    var nama = document.getElementById("nama").value;
+    var status = document.getElementById("status").value;
+
+    var pesan = "Assalamu'alaikum, saya " + nama + " menyatakan " + status + " pada acara Ngunduh Mantu Fadila & Rosita";
+
+    window.open("https://wa.me/6281360204857?text=" + encodeURIComponent(pesan));
+}
+</script>
+
+</body>
+</html>
