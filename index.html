@@ -6,6 +6,27 @@
 <title>Ngunduh Mantu Fadil & Sita</title>
 
 <style>
+#flowers {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+.flower {
+    position: absolute;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -72,7 +93,7 @@ h1, h2 {
 </head>
 
 <body>
-
+<div id="flowers"></div>
 <!-- MUSIK -->
 <audio autoplay loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
@@ -97,7 +118,14 @@ h1, h2 {
         Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
         (QS. Ar-Rum: 21)
     </p>
-    <p>Dengan penuh rasa syukur kami mengundang Anda</p>
+    <p>Kepada Yth.</p>
+    <h3 id="guestName">Tamu Undangan</h3>
+    const urlParams = new URLSearchParams(window.location.search);
+const namaTamu = urlParams.get('to');
+
+if(namaTamu){
+    document.getElementById("guestName").innerText = namaTamu;
+}
 </div>
 
 <!-- COUNTDOWN -->
@@ -173,7 +201,23 @@ h1, h2 {
     </select><br><br>
     <button class="button" onclick="kirimWA()">Kirim</button>
 </div>
+<div class="section fade">
+    <h2>Ucapan & Doa</h2>
+    <div class="card">
+        <input type="text" id="ucapan" placeholder="Tulis ucapan"><br><br>
+        <button class="button" onclick="tambahUcapan()">Kirim</button>
+        <div id="listUcapan"></div>
+    </div>
+</div>
+function tambahUcapan(){
+    var text = document.getElementById("ucapan").value;
+    var list = document.getElementById("listUcapan");
 
+    var p = document.createElement("p");
+    p.innerText = text;
+
+    list.appendChild(p);
+}
 </div>
 
 <script>
@@ -204,7 +248,18 @@ function kirimWA(){
     var pesan = "Assalamu'alaikum, saya " + nama + " menyatakan " + status;
     window.open("https://wa.me/6281360204857?text=" + encodeURIComponent(pesan));
 }
-</script>
+setInterval(() => {
+    let flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerHTML = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (3 + Math.random()*5) + "s";
 
+    document.getElementById("flowers").appendChild(flower);
+
+    setTimeout(() => flower.remove(), 8000);
+}, 500);
+    
+</script>
 </body>
 </html>
