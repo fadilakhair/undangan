@@ -190,7 +190,7 @@ Loading...
 <div class="section">
 <h2>Galeri</h2>
 <div class="card">
-<img id="slider" src="foto1.jpg" style="width:100%; border-radius:15px;">
+<img id="slider" src="foto1.jpeg" style="width:100%; border-radius:15px;">
 </div>
 </div>
 
@@ -200,7 +200,7 @@ var images = [
 "foto1.jpeg",
 "foto2.jpeg",
 "foto4.jpeg",
-"foto5.jpeg",
+"foto5.jpeg"
 ];
 let i = 0;
 setInterval(()=>{
@@ -263,9 +263,18 @@ DANA<br>
 <script>
 
 /* LOADING FIX */
-window.addEventListener("load", function(){
-    document.getElementById("loading").style.display = "none";
-});
+window.onload = function() {
+    var loading = document.getElementById("loading");
+    if(loading){
+        loading.style.display = "none";
+    }
+};
+setTimeout(function(){
+    var loading = document.getElementById("loading");
+    if(loading){
+        loading.style.display = "none";
+    }
+}, 3000);
 
 /* OPEN */
 function openInvite(){
