@@ -3,30 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ngunduh Mantu Fadil & Sita</title>
+<title>Ngunduh Mantu Fadila & Rosita</title>
 
 <style>
-#flowers {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-}
-
-.flower {
-    position: absolute;
-    top: -10px;
-    font-size: 20px;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-    }
-}
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -34,15 +13,7 @@ body {
     text-align: center;
 }
 
-/* ANIMASI */
-.fade {
-    animation: fadeIn 1.5s ease;
-}
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
-}
-
+/* SECTION */
 .section {
     padding: 50px 20px;
 }
@@ -58,9 +29,9 @@ h1, h2 {
     border-radius: 30px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
+/* CARD */
 .card {
     background: white;
     margin: 15px auto;
@@ -70,6 +41,24 @@ h1, h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* FLOWER */
+#flowers {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower {
+    position: absolute;
+    top: -10px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+
 /* GIFT */
 .gift-card {
     display: flex;
@@ -77,231 +66,12 @@ h1, h2 {
     gap: 15px;
     text-align: left;
 }
-
 .gift-card img {
     width: 50px;
 }
 
-.copy-btn {
-    background: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-</style>
-</head>
-<div id="loading" style="
-position:fixed;
-width:100%;
-height:100%;
-background:white;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-font-size:20px;
-">
-Loading...
-</div>
-    <script>
-        window.onload = function(){
-    document.getElementById("loading").style.display = "none";
-}
-    </script>
-<body>
-<div id="flowers"></div>
-<!-- MUSIK -->
-<audio id="music" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
-</audio>
-
-<button onclick="toggleMusic()" 
-style="position:fixed; bottom:20px; right:20px; border:none; border-radius:50%; padding:15px; background:#8b5e3c; color:white;">
-🎵
-</button>
-    <script>
-        var music = document.getElementById("music");
-
-function toggleMusic(){
-    if(music.paused){
-        music.play();
-    } else {
-        music.pause();
-    }
-}
-    </script>
-
-<!-- COVER -->
-<div class="section fade" id="cover">
-    <h2>Undangan</h2>
-    <h1>Ngunduh Mantu</h1>
-    <button class="button" onclick="openInvite()">Buka Undangan</button>
-</div>
-
-<div id="content" style="display:none;">
-
-<div class="section fade">
-    <h1>Fadila Khair, S.Kom & Rosita, S.Pd., Gr</h1>
-    <p style="font-style:italic; max-width:450px; margin:auto;">
-    وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةًۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
-    </p>
-    <p style="font-style:italic; max-width:400px; margin:auto;">
-        "Dan Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. 
-        Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
-        (QS. Ar-Rum: 21)
-    </p>
-    <p>Kepada Yth.</p>
-    <h3 id="guestName">Tamu Undangan</h3>
-</div>
-    <script>
-   const urlParams = new URLSearchParams(window.location.search);
-const namaTamu = urlParams.get('to');
-
-if(namaTamu){
-    document.getElementById("guestName").innerText = namaTamu;
-}
-    </script>
-<!-- COUNTDOWN -->
-<div class="section fade">
-    <h2>Menuju Hari Bahagia</h2>
-    <h3 id="countdown"></h3>
-</div>
-
-<!-- ACARA -->
-<div class="section fade">
-    <div class="card">
-        <h2>Ngunduh Mantu</h2>
-        <p><b>Sabtu, 11 April 2026</b></p>
-        <p>Pukul 10.00 WIB - Selesai</p>
-        <p>Dusun III Desa Mangga Dua<br>Kec. Tanjung Beringin<br>Kab. Serdang Bedagai</p>
-    </div>
-</div>
-
-<!-- MAP -->
-<div class="section fade">
-    <h2>Lokasi Acara</h2>
-
-    <div class="card">
-        <iframe 
-            src="https://www.google.com/maps?q=3.515364,99.163123&hl=id&z=15&output=embed"
-            width="100%" 
-            height="250" 
-            style="border:0; border-radius:15px;" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
-
-        <br><br>
-
-        <a href="https://www.google.com/maps?q=3.515364,99.163123" target="_blank">
-            <button class="button">📍 Buka di Google Maps</button>
-        </a>
-    </div>
-</div>
-
-<!-- GIFT -->
-<div class="section fade">
-    <h2>Wedding Gift</h2>
-
-    <div class="card gift-card">
-        <img src="https://raw.githubusercontent.com/fadilakhair/undangan/refs/heads/main/Bank%20Mandiri.png">
-        <div>
-            <b>Bank Mandiri</b><br>
-            1070021732005<br>
-            a.n Fadila Khair<br>
-            <button class="copy-btn" onclick="copyText('1070021732005')">Salin</button>
-        </div>
-    </div>
-
-    <div class="card gift-card">
-        <img src="https://raw.githubusercontent.com/fadilakhair/undangan/refs/heads/main/Dana.png">
-        <div>
-            <b>DANA</b><br>
-            081360204857<br>
-            a.n Fadila Khair<br>
-            <button class="copy-btn" onclick="copyText('081360204857')">Salin</button>
-        </div>
-    </div>
-</div>
-
-<!-- RSVP -->
-<div class="section fade">
-    <h2>Konfirmasi Kehadiran</h2>
-    <input type="text" id="nama" placeholder="Nama"><br><br>
-    <select id="status">
-        <option>Hadir</option>
-        <option>Tidak Hadir</option>
-    </select><br><br>
-    <button class="button" onclick="kirimWA()">Kirim</button>
-</div>
-<div class="section fade">
-    <h2>Ucapan & Doa</h2>
-    <div class="card">
-        <input type="text" id="ucapan" placeholder="Tulis ucapan"><br><br>
-        <button class="button" onclick="tambahUcapan()">Kirim</button>
-        <div id="listUcapan"></div>
-    </div>
-</div>
-<Script>
-function tambahUcapan(){
-    var text = document.getElementById("ucapan").value;
-    var list = document.getElementById("listUcapan");
-
-    var p = document.createElement("p");
-    p.innerText = text;
-
-    list.appendChild(p);
-}
-</script>
-</div>
-
-<script>
-function openInvite(){
-    document.getElementById("cover").style.display="none";
-    document.getElementById("content").style.display="block";
-}
-
-/* COUNTDOWN */
-var countDate = new Date("April 11, 2026 10:00:00").getTime();
-setInterval(function(){
-    var now = new Date().getTime();
-    var distance = countDate - now;
-    var days = Math.floor(distance / (1000*60*60*24));
-    document.getElementById("countdown").innerHTML = days + " Hari Lagi";
-},1000);
-
-/* COPY */
-function copyText(text){
-    navigator.clipboard.writeText(text);
-
-    var toast = document.getElementById("toast");
-    toast.style.display = "block";
-
-    setTimeout(()=>{
-        toast.style.display = "none";
-    },2000);
-}
-
-/* WA */
-function kirimWA(){
-    var nama = document.getElementById("nama").value;
-    var status = document.getElementById("status").value;
-    var pesan = "Assalamu'alaikum, saya " + nama + " menyatakan " + status;
-    window.open("https://wa.me/6281360204857?text=" + encodeURIComponent(pesan));
-}
-setInterval(() => {
-    let flower = document.createElement("div");
-    flower.classList.add("flower");
-    flower.innerHTML = "🌸";
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = (3 + Math.random()*5) + "s";
-
-    document.getElementById("flowers").appendChild(flower);
-
-    setTimeout(() => flower.remove(), 8000);
-}, 500);
-    <div id="toast" style="
+/* TOAST */
+#toast {
 position:fixed;
 bottom:80px;
 left:50%;
@@ -311,9 +81,216 @@ color:white;
 padding:10px 20px;
 border-radius:20px;
 display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="flowers"></div>
+
+<!-- LOADING -->
+<div id="loading" style="
+position:fixed;
+width:100%;
+height:100%;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
 ">
-Berhasil disalin
+Loading...
 </div>
+
+<!-- MUSIK -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<button onclick="toggleMusic()" style="position:fixed; bottom:20px; right:20px; border:none; border-radius:50%; padding:15px; background:#8b5e3c; color:white;">🎵</button>
+
+<!-- COVER -->
+<div class="section" id="cover">
+    <h2>Undangan</h2>
+    <h1>Ngunduh Mantu</h1>
+    <p>Kepada Yth.</p>
+    <h3 id="guestName">Tamu Undangan</h3>
+    <button class="button" onclick="openInvite()">Buka Undangan</button>
+</div>
+
+<!-- CONTENT -->
+<div id="content" style="display:none;">
+
+<div class="section">
+    <h1>Fadila Khair & Rosita</h1>
+    <p style="font-style:italic;">"Dan di antara tanda-tanda kekuasaan-Nya..." (QS. Ar-Rum:21)</p>
+</div>
+
+<div class="section">
+    <h2 id="countdown"></h2>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>Ngunduh Mantu</h2>
+<p>Sabtu, 11 April 2026</p>
+<p>Pukul 10.00 WIB - Selesai</p>
+<p>Dusun III Desa Mangga Dua<br>Kec. Tanjung Beringin<br>Kab. Serdang Bedagai</p>
+</div>
+</div>
+
+<!-- MAP -->
+<div class="section">
+<div class="card">
+<iframe src="https://www.google.com/maps?q=3.515364,99.163123&output=embed" width="100%" height="250" style="border:0; border-radius:15px;"></iframe>
+<br><br>
+<a href="https://www.google.com/maps?q=3.515364,99.163123" target="_blank">
+<button class="button">📍 Buka Maps</button>
+</a>
+</div>
+</div>
+
+<!-- GALLERY -->
+<div class="section">
+<h2>Galeri</h2>
+<div class="card">
+<img id="slider" src="https://via.placeholder.com/400x300">
+</div>
+</div>
+
+<!-- RSVP -->
+<div class="section">
+<h2>Konfirmasi Kehadiran</h2>
+<input type="text" id="nama" placeholder="Nama"><br><br>
+<select id="status">
+<option>Hadir</option>
+<option>Tidak Hadir</option>
+</select><br><br>
+<button class="button" onclick="kirimWA()">Kirim</button>
+</div>
+
+<!-- UCAPAN -->
+<div class="section">
+<h2>Ucapan</h2>
+<input type="text" id="ucapan" placeholder="Tulis ucapan"><br><br>
+<button class="button" onclick="tambahUcapan()">Kirim</button>
+<div id="listUcapan"></div>
+</div>
+
+<!-- GIFT -->
+<div class="section">
+<h2>Wedding Gift</h2>
+
+<div class="card gift-card">
+<img src="mandiri.png">
+<div>
+Bank Mandiri<br>
+1070021732005<br>
+<button onclick="copyText('1070021732005')">Salin</button>
+</div>
+</div>
+
+<div class="card gift-card">
+<img src="dana.png">
+<div>
+DANA<br>
+081360204857<br>
+<button onclick="copyText('081360204857')">Salin</button>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="toast">Berhasil disalin</div>
+
+<script>
+
+/* LOADING FIX */
+window.addEventListener("load", function(){
+    document.getElementById("loading").style.display = "none";
+});
+
+/* OPEN */
+function openInvite(){
+    document.getElementById("cover").style.display="none";
+    document.getElementById("content").style.display="block";
+}
+
+/* MUSIC */
+var music = document.getElementById("music");
+function toggleMusic(){
+    if(music.paused){ music.play(); } else { music.pause(); }
+}
+
+/* COUNTDOWN */
+var countDate = new Date("April 11, 2026 10:00:00").getTime();
+setInterval(function(){
+    var now = new Date().getTime();
+    var d = countDate - now;
+    var days = Math.floor(d / (1000*60*60*24));
+    document.getElementById("countdown").innerHTML = days + " Hari Lagi";
+},1000);
+
+/* FLOWERS */
+setInterval(()=>{
+    let f = document.createElement("div");
+    f.classList.add("flower");
+    f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=(3+Math.random()*5)+"s";
+    document.getElementById("flowers").appendChild(f);
+    setTimeout(()=>f.remove(),8000);
+},500);
+
+/* GUEST NAME */
+const urlParams = new URLSearchParams(window.location.search);
+const namaTamu = urlParams.get('to');
+if(namaTamu){
+    document.getElementById("guestName").innerText = namaTamu;
+}
+
+/* SLIDER */
+var images = [
+"mandiri.png",
+"dana.png"
+];
+let i=0;
+setInterval(()=>{
+    i=(i+1)%images.length;
+    document.getElementById("slider").src=images[i];
+},3000);
+
+/* RSVP */
+function kirimWA(){
+    var nama = document.getElementById("nama").value;
+    var status = document.getElementById("status").value;
+    if(nama===""){ alert("Isi nama dulu"); return;}
+    var pesan=`Assalamu'alaikum, saya ${nama} menyatakan ${status}`;
+    window.open("https://wa.me/6281360204857?text="+encodeURIComponent(pesan));
+}
+
+/* UCAPAN */
+function tambahUcapan(){
+    var text=document.getElementById("ucapan").value;
+    if(text==="") return;
+    var p=document.createElement("p");
+    p.innerText=text;
+    document.getElementById("listUcapan").appendChild(p);
+    document.getElementById("ucapan").value="";
+}
+
+/* COPY */
+function copyText(text){
+    navigator.clipboard.writeText(text);
+    var t=document.getElementById("toast");
+    t.style.display="block";
+    setTimeout(()=>{t.style.display="none"},2000);
+}
+
 </script>
+
 </body>
 </html>
