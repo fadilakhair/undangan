@@ -120,14 +120,15 @@ h1, h2 {
     </p>
     <p>Kepada Yth.</p>
     <h3 id="guestName">Tamu Undangan</h3>
-    const urlParams = new URLSearchParams(window.location.search);
+</div>
+    <script>
+   const urlParams = new URLSearchParams(window.location.search);
 const namaTamu = urlParams.get('to');
 
 if(namaTamu){
     document.getElementById("guestName").innerText = namaTamu;
 }
-</div>
-
+    </script>
 <!-- COUNTDOWN -->
 <div class="section fade">
     <h2>Menuju Hari Bahagia</h2>
@@ -209,6 +210,7 @@ if(namaTamu){
         <div id="listUcapan"></div>
     </div>
 </div>
+<Script>
 function tambahUcapan(){
     var text = document.getElementById("ucapan").value;
     var list = document.getElementById("listUcapan");
@@ -218,6 +220,7 @@ function tambahUcapan(){
 
     list.appendChild(p);
 }
+</script>
 </div>
 
 <script>
